@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const url = "https://localhost:7474/api/redirect";
+    fetch(url, {
+        method : "POST",
+        // headers: {
+        //     "Content-Type": "application/x-www-form-urlencoded",
+        //     // "Content-Type": "application/x-www-form-urlencoded",
+        // },
+        redirect: 'follow',
+        // body: new FormData(document.getElementById("inputform")),
+        // -- or --
+        body : JSON.stringify({
+            utm_source: "gobear",
+            utm_medium: "cpc",
+            utm_campaign: "samsonite_campaign",
+            ttrip: "SINGLE",
+            tplan: "IND",
+            start: "29/11/2018",
+            stop: "29/11/2018",
+            dest: "A2",
+            adc: 1,
+            chc: 0,
+            plan: "VIP",
+            country: "Amsterdam"
+
+        })
+    }).then(response => {
+        response.redirect
+        // HTTP 301 response
+    })
+    .catch(function(err) {
+        console.info(err + " url: " + url);
+    });
+</script>
+
+</body>
+</html>
